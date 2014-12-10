@@ -1,5 +1,6 @@
 package com.github.emalock3.mybatis.web;
 
+import com.github.emalock3.mybatis.FooBarProperties;
 import com.github.emalock3.mybatis.mapper.domain.Bar;
 import com.github.emalock3.mybatis.mapper.domain.Foo;
 import com.github.emalock3.mybatis.service.FooBarService;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class FooBarController {
     
     private final FooBarService fooBarService;
+    private final FooBarProperties fooBarProperties;
     
     @Autowired
-    public FooBarController(FooBarService fooBarService) {
+    public FooBarController(FooBarService fooBarService, FooBarProperties fooBarProperties) {
         this.fooBarService = fooBarService;
+        this.fooBarProperties = fooBarProperties;
     }
     
     @RequestMapping("/foos")
@@ -46,6 +49,9 @@ public class FooBarController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     
-    
+    @RequestMapping("/props")
+    public FooBarProperties fooBarProps() {
+        return fooBarProperties;
+    }
     
 }

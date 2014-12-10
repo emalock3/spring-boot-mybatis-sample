@@ -5,31 +5,15 @@ spring:
   main.show_banner: false
   application.name: mybatis-spring-sample
   velocity.checkTemplateLocation: false
-  
-  # default datasource
-  datasource-primary:
-    url: "jdbc:h2:mem:primary_db"
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ""
-    min-idle: 1
-    max-idle: 1
-    max-active: 2
-    initial-size: 1
-    validation-query: "SELECT 1"
-    test-on-borrow: true
-  # secondary datasource
-  datasource-secondary:
-    url: "jdbc:h2:mem:secondary_db"
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ""
-    min-idle: 1
-    max-idle: 1
-    max-active: 2
-    initial-size: 1
-    validation-query: "SELECT 1"
-    test-on-borrow: true
 
 # info endpoints settings
 info.app.name: ${spring.application.name} - ${spring.profiles.active}
+
+management.contextPath: "/_actuator"
+
+# foobar settings
+foobar:
+  fooName: FOO
+  barName: BAR
+  hoge: hoge
+  hogeNum: 1234

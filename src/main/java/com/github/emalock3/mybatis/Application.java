@@ -9,15 +9,19 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 @ComponentScan
 @EnableAutoConfiguration
+@Configuration
+@EnableConfigurationProperties
 public class Application {
     
     public static void main(String[] args) {
@@ -31,7 +35,6 @@ public class Application {
     @MapperScan(value="com.github.emalock3.mybatis.mapper.primary", 
             sqlSessionFactoryRef="sqlSessionFactoryForPrimary")
     static class MyBatisConfigurationForPrimary {
-        
         @Primary
         @Bean
         @ConfigurationProperties(prefix="spring.datasource-primary")

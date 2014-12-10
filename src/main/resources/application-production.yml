@@ -1,0 +1,15 @@
+spring:
+  # default datasource
+  datasource-primary:
+    username: sa
+    password: "sasasa"
+    min-idle: 10
+    max-idle: 10
+    max-active: 20
+    initial-size: 10
+  # secondary datasource
+  datasource-secondary:
+    min-idle: 10
+    max-idle: 10
+    max-active: 20
+    initial-size: 10
